@@ -2,13 +2,21 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Build",
       "type": "shell",
-      "command": "bash -li ./build.sh",
+      "command": "bash -li -c ./build.sh",
       "group": {
         "kind": "build",
         "isDefault": true
       },
-      "label": "Build"
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Electron",
+      "type": "shell",
+      "command": "run.cmd",
+      "group": "none",
+      "problemMatcher": []
     }
   ]
 }

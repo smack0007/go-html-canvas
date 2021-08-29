@@ -1,13 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
-
 func main() {  
-    fmt.Println("Go Web Assembly");
-    fmt.Println("Wiritng another line");
-
 	graphics := InitCanvasGraphics();
 	draw(graphics);
 }
