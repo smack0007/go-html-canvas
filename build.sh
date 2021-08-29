@@ -1,5 +1,9 @@
 #!/bin/bash
 echo "Building..."
-go env -w GOOS=js GOARCH=wasm && go build -o ./bin/hello.wasm ./src
-cp ./src/electron/* ./bin
+
+cd ./src
+go env -w GOOS=js GOARCH=wasm && go build -v -o ../bin/hello.wasm
+cp ./electron/* ../bin
+cd ..
+
 cp $(go env GOROOT)/misc/wasm/wasm_exec.js ./bin
