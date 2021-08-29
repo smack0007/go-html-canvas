@@ -2,6 +2,7 @@ package main
 
 func main() {  
 	graphics := InitCanvasGraphics();
+	graphics.LoadImage("cards.png");
 	draw(graphics);
 }
 
