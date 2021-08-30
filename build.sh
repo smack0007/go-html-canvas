@@ -2,7 +2,7 @@
 echo "Building..."
 
 cd ./src
-go env -w GOOS=js GOARCH=wasm && go build -v -o ../bin/hello.wasm
+GOOS=js GOARCH=wasm go build -v -o ../bin/hello.wasm
 cp -u ./electron/* ../bin
 cd ..
 
