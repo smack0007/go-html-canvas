@@ -13,6 +13,7 @@ type CanvasGraphicsContext struct {
 
 type CanvasImage struct {
 	image js.Value;
+	loaded bool;
 }
 
 func InitCanvasGraphics() *CanvasGraphicsContext {
@@ -36,8 +37,26 @@ func (graphics *CanvasGraphicsContext) FillRect(r Rect, c Color) {
 
 func (graphics *CanvasGraphicsContext) LoadImage(fileName string) Image {
 	image := js.Global().Get("Image").New();
+	
+	result := CanvasImage{ image: image, loaded: false };
+
+	var loadedCallback js.Func;
+
+	loaded := func(this js.Value, args []js.Value) interface{} {
+		result.loaded = true;
+		image.Call("removeEventListener", "load", loadedCallback);
+		return nil;
+	};
+	
+	loadedCallback = js.FuncOf(loaded);
+
+	image.Call("addEventListener", "load", loadedCallback);
 	image.Set("src", fileName);
-	return &CanvasImage{ image: image };
+	return &result;
+}
+
+func (image *CanvasImage) Loaded() bool {
+	return image.loaded;	
 }
 
 func (image *CanvasImage) Width() int32 {

@@ -1,13 +1,15 @@
 package main
 
 type GraphicsContext interface {
-	FillRect(r Rect, c Color);
-	
-	LoadImage(fileName string) Image;
+	FillRect(r Rect, c Color)
+
+	LoadImage(fileName string) Image
 }
 
 type Image interface {
-	Width() int32;
+	Loaded() bool
 
-	Height() int32;
+	Width() int32
+
+	Height() int32
 }
