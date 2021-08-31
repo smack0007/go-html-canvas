@@ -1,3 +1,3 @@
-module go-html-canvas
+module app
 
 go 1.17

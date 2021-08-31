@@ -1,7 +1,13 @@
 package main
 
+import (
+	types "app/types"
+)
+
 type GraphicsContext interface {
-	FillRect(r Rect, c Color)
+	DrawSprite(image Image, source types.Rect, destination types.Rect)
+	
+	FillRect(r types.Rect, c Color)
 
 	LoadImage(fileName string) Image
 }
@@ -9,7 +15,7 @@ type GraphicsContext interface {
 type Image interface {
 	Loaded() bool
 
-	Width() int32
+	Width() int
 
-	Height() int32
+	Height() int
 }
