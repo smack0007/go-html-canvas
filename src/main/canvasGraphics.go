@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"syscall/js"
 
-	types "app/types"
+	"types"
 )
 
 type CanvasGraphicsContext struct {

@@ -4,7 +4,7 @@
     {
       "label": "Build",
       "type": "shell",
-      "command": "bash -li -c ./build.sh",
+      "command": "bash -li -c \"./vet.sh && ./build.sh\"",
       "group": {
         "kind": "build",
         "isDefault": true

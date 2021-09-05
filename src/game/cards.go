@@ -1,7 +1,7 @@
 package game
 
 import (
-	types "app/types"
+	"types"
 )
 
 var ImageOffsets [1]types.Rect = [1]types.Rect{

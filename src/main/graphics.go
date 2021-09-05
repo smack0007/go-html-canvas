@@ -1,7 +1,7 @@
 package main
 
 import (
-	types "app/types"
+	"types"
 )
 
 type GraphicsContext interface {

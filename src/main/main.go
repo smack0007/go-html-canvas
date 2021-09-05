@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	game "app/game"
-	types "app/types"
+	"game"
+	"types"
 )
 
 func main() {
@@ -29,8 +29,8 @@ func main() {
 }
 
 func draw(graphics GraphicsContext, image Image) {
-	graphics.FillRect(types.Rect{0, 0, 1024, 768}, Color{0, 0, 0, 255})
-	graphics.FillRect(types.Rect{10, 10, 100, 100}, Color{255, 0, 0, 255})
-	graphics.FillRect(types.Rect{110, 110, 100, 100}, Color{0, 0, 255, 255})
-	graphics.DrawSprite(image, game.ImageOffsets[0], types.Rect{0, 0, game.ImageOffsets[0].Width, game.ImageOffsets[0].Height})
+	graphics.FillRect(types.Rect{X: 0, Y: 0, Width: 1024, Height: 768}, Color{0, 0, 0, 255})
+	graphics.FillRect(types.Rect{X: 10, Y: 10, Width: 100, Height: 100}, Color{255, 0, 0, 255})
+	graphics.FillRect(types.Rect{X: 110, Y: 110, Width: 100, Height: 100}, Color{0, 0, 255, 255})
+	graphics.DrawSprite(image, game.ImageOffsets[0], types.Rect{X: 0, Y: 0, Width: game.ImageOffsets[0].Width, Height: game.ImageOffsets[0].Height})
 }
