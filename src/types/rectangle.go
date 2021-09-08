@@ -1,5 +1,5 @@
 package types
 
-type Rect struct {
+type Rectangle struct {
 	X, Y, Width, Height int
 }

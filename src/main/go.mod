@@ -3,11 +3,11 @@ module main
 go 1.17
 
 require (
-    game v1.0.0
+    cards v1.0.0
     types v1.0.0
 )
 
 replace (
-    game v1.0.0 => ../game
+    cards v1.0.0 => ../cards
     types v1.0.0 => ../types
 )

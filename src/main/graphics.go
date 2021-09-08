@@ -5,9 +5,9 @@ import (
 )
 
 type GraphicsContext interface {
-	DrawSprite(image Image, source types.Rect, destination types.Rect)
+	DrawSprite(image Image, source types.Rectangle, destination types.Rectangle)
 	
-	FillRect(r types.Rect, c Color)
+	FillRect(r types.Rectangle, c Color)
 
 	LoadImage(fileName string) Image
 }
