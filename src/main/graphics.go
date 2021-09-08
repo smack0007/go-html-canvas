@@ -1,13 +1,13 @@
 package main
 
-import (
-	"types"
-)
+type Rectangle struct {
+	X, Y, Width, Height int
+}
 
 type GraphicsContext interface {
-	DrawSprite(image Image, source types.Rectangle, destination types.Rectangle)
+	DrawSprite(image Image, source Rectangle, destination Rectangle)
 	
-	FillRect(r types.Rectangle, c Color)
+	FillRect(r Rectangle, c Color)
 
 	LoadImage(fileName string) Image
 }

@@ -1,9 +1,5 @@
 package cards
 
-import (
-	"types"
-)
-
 type CardSuit byte
 
 const (
@@ -36,7 +32,11 @@ type Card struct {
 	Value CardValue
 }
 
-var CardImageRectangles = map[Card]types.Rectangle{
+type Rectangle struct {
+	X, Y, Width, Height int
+}
+
+var CardImageRectangles = map[Card]Rectangle{
 	{Suit: Clubs, Value: Ten}:      {X: 560, Y: 760, Width: 140, Height: 190},
 	{Suit: Clubs, Value: Two}:      {X: 280, Y: 1140, Width: 140, Height: 190},
 	{Suit: Clubs, Value: Three}:    {X: 700, Y: 190, Width: 140, Height: 190},

@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 	"syscall/js"
-
-	"types"
 )
 
 type CanvasGraphicsContext struct {
@@ -32,7 +30,7 @@ func InitCanvasGraphics() *CanvasGraphicsContext {
 	}
 }
 
-func (graphics *CanvasGraphicsContext) DrawSprite(image Image, source types.Rectangle, destination types.Rectangle) {
+func (graphics *CanvasGraphicsContext) DrawSprite(image Image, source Rectangle, destination Rectangle) {
 	canvasImage := image.(*CanvasImage)
 	graphics.context.Call(
 		"drawImage",
@@ -47,7 +45,7 @@ func (graphics *CanvasGraphicsContext) DrawSprite(image Image, source types.Rect
 		destination.Height);
 }
 
-func (graphics *CanvasGraphicsContext) FillRect(r types.Rectangle, c Color) {
+func (graphics *CanvasGraphicsContext) FillRect(r Rectangle, c Color) {
 	graphics.context.Set("fillStyle", fmt.Sprintf("rgba(%d, %d, %d, %d)", c.r, c.g, c.b, c.a))
 	graphics.context.Call("fillRect", r.X, r.Y, r.Width, r.Height)
 }
