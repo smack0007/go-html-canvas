@@ -5,10 +5,11 @@ import (
 	"time"
 
 	"cards"
+	"engine"
 )
 
 func main() {
-	graphics := InitCanvasGraphics()
+	graphics := engine.InitCanvasGraphics()
 	fmt.Println("Loading image...")
 	image := graphics.LoadImage("cards.png")
 
@@ -25,11 +26,11 @@ func main() {
 	select {}
 }
 
-func draw(graphics GraphicsContext, image Image) {
-	graphics.FillRect(Rectangle{X: 0, Y: 0, Width: 1024, Height: 768}, Color{0, 0, 0, 255})
-	graphics.FillRect(Rectangle{X: 10, Y: 10, Width: 100, Height: 100}, Color{255, 0, 0, 255})
-	graphics.FillRect(Rectangle{X: 110, Y: 110, Width: 100, Height: 100}, Color{0, 0, 255, 255})
+func draw(graphics engine.GraphicsContext, image engine.Image) {
+	graphics.FillRect(engine.Rectangle{X: 0, Y: 0, Width: 1024, Height: 768}, engine.Color{R: 0, G: 0, B: 0, A: 255})
+	graphics.FillRect(engine.Rectangle{X: 10, Y: 10, Width: 100, Height: 100}, engine.Color{R: 255, G: 0, B: 0, A: 255})
+	graphics.FillRect(engine.Rectangle{X: 110, Y: 110, Width: 100, Height: 100}, engine.Color{R: 0, G: 0, B: 255, A: 255})
 
 	rect := cards.CardImageRectangles[cards.Card{Suit: cards.Hearts, Value: cards.Three}]
-	graphics.DrawSprite(image, Rectangle(rect), Rectangle{X: 0, Y: 0, Width: rect.Width, Height: rect.Height})
+	graphics.DrawSprite(image, engine.Rectangle(rect), engine.Rectangle{X: 0, Y: 0, Width: rect.Width, Height: rect.Height})
 }

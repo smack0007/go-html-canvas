@@ -1,4 +1,4 @@
-package main
+package engine
 
 import (
 	"fmt"
@@ -46,7 +46,7 @@ func (graphics *CanvasGraphicsContext) DrawSprite(image Image, source Rectangle,
 }
 
 func (graphics *CanvasGraphicsContext) FillRect(r Rectangle, c Color) {
-	graphics.context.Set("fillStyle", fmt.Sprintf("rgba(%d, %d, %d, %d)", c.r, c.g, c.b, c.a))
+	graphics.context.Set("fillStyle", fmt.Sprintf("rgba(%d, %d, %d, %d)", c.R, c.G, c.B, c.A))
 	graphics.context.Call("fillRect", r.X, r.Y, r.Width, r.Height)
 }
 

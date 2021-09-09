@@ -1,8 +1,4 @@
-package main
-
-type Rectangle struct {
-	X, Y, Width, Height int
-}
+package engine
 
 type GraphicsContext interface {
 	DrawSprite(image Image, source Rectangle, destination Rectangle)
