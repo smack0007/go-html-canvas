@@ -6,10 +6,11 @@ import (
 
 	"cards"
 	"engine"
+	"engine/graphics"
 )
 
 func main() {
-	graphics := engine.InitCanvasGraphics()
+	graphics := graphics.InitCanvasGraphics()
 	fmt.Println("Loading image...")
 	image := graphics.LoadImage("cards.png")
 
@@ -26,7 +27,7 @@ func main() {
 	select {}
 }
 
-func draw(graphics engine.GraphicsContext, image engine.Image) {
+func draw(graphics graphics.GraphicsContext, image graphics.Image) {
 	graphics.FillRect(engine.Rectangle{X: 0, Y: 0, Width: 1024, Height: 768}, engine.Color{R: 0, G: 0, B: 0, A: 255})
 	graphics.FillRect(engine.Rectangle{X: 10, Y: 10, Width: 100, Height: 100}, engine.Color{R: 255, G: 0, B: 0, A: 255})
 	graphics.FillRect(engine.Rectangle{X: 110, Y: 110, Width: 100, Height: 100}, engine.Color{R: 0, G: 0, B: 255, A: 255})

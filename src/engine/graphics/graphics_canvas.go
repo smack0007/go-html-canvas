@@ -1,8 +1,10 @@
-package engine
+package graphics
 
 import (
 	"fmt"
 	"syscall/js"
+
+	"engine"
 )
 
 type CanvasGraphicsContext struct {
@@ -30,7 +32,7 @@ func InitCanvasGraphics() *CanvasGraphicsContext {
 	}
 }
 
-func (graphics *CanvasGraphicsContext) DrawSprite(image Image, source Rectangle, destination Rectangle) {
+func (graphics *CanvasGraphicsContext) DrawSprite(image Image, source engine.Rectangle, destination engine.Rectangle) {
 	canvasImage := image.(*CanvasImage)
 	graphics.context.Call(
 		"drawImage",
@@ -45,7 +47,7 @@ func (graphics *CanvasGraphicsContext) DrawSprite(image Image, source Rectangle,
 		destination.Height);
 }
 
-func (graphics *CanvasGraphicsContext) FillRect(r Rectangle, c Color) {
+func (graphics *CanvasGraphicsContext) FillRect(r engine.Rectangle, c engine.Color) {
 	graphics.context.Set("fillStyle", fmt.Sprintf("rgba(%d, %d, %d, %d)", c.R, c.G, c.B, c.A))
 	graphics.context.Call("fillRect", r.X, r.Y, r.Width, r.Height)
 }
