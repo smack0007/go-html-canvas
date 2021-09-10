@@ -18,4 +18,4 @@ jobs:
       #   with:
       #       node-version: 15.8.0
 
-      - run: ./build.sh
+      - run: ./vet.sh && ./build.sh
